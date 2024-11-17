@@ -1,8 +1,14 @@
-import React from 'react'; // Eliminamos useEffect ya que no se usa
+import React, { useState } from 'react';
 import { useProductos } from '../context/ProductosContext';
 
 const Carrito = () => {
   const { carrito, eliminarDelCarrito, presupuesto, nombre } = useProductos();
+
+  // Estados para los campos de la tarjeta
+  const [numeroTarjeta, setNumeroTarjeta] = useState('');
+  const [fechaExpiracion, setFechaExpiracion] = useState('');
+  const [codigoSeguridad, setCodigoSeguridad] = useState('');
+  const [nombreTitular, setNombreTitular] = useState('');
 
   const totalCompra = carrito.reduce((total, producto) => total + producto.price, 0);
   const cargoDomicilio = totalCompra > 1000000 ? 0 : 10000;
@@ -14,6 +20,14 @@ const Carrito = () => {
     } else {
       alert('¡Compra realizada con éxito!');
     }
+  };
+
+  // Función para limpiar los campos
+  const limpiarCampos = () => {
+    setNumeroTarjeta('');
+    setFechaExpiracion('');
+    setCodigoSeguridad('');
+    setNombreTitular('');
   };
 
   return (
@@ -52,11 +66,31 @@ const Carrito = () => {
             <p><strong>Nombre: </strong>{nombre}</p>
             <p><strong>Presupuesto: </strong>{presupuesto}</p>
           </div>
-          <input type="text" placeholder="Número de tarjeta" />
-          <input type="text" placeholder="Fecha de expiración (MM/AA)" />
-          <input type="text" placeholder="Código de seguridad" />
-          <input type="text" placeholder="Nombre del titular" />
-          <button>Limpiar Campos</button>
+          <input 
+            type="text" 
+            placeholder="Número de tarjeta" 
+            value={numeroTarjeta}
+            onChange={(e) => setNumeroTarjeta(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Fecha de expiración (MM/AA)" 
+            value={fechaExpiracion}
+            onChange={(e) => setFechaExpiracion(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Código de seguridad" 
+            value={codigoSeguridad}
+            onChange={(e) => setCodigoSeguridad(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Nombre del titular" 
+            value={nombreTitular}
+            onChange={(e) => setNombreTitular(e.target.value)}
+          />
+          <button onClick={limpiarCampos}>Limpiar Campos</button>
           <button onClick={verificarPresupuesto}>Confirmar Compra</button>
         </div>
       </div>
