@@ -138,12 +138,20 @@ body {
 
   #parent {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: center;
   }
   
   .container {
-    max-width: 800px; /* Ajusta según el ancho deseado */
-    width: 100%; /* Permite que se ajuste al ancho disponible */
-    padding: 20px; /* Opcional: añade espacio interno */
+    max-width: 800px; 
+    width: 100%; 
+    padding: 20px;
+  }
+
+  table td{
+    background-color: bisque;
+    border-color: #333;
+    border-width: 1px;
+    border-style: dotted;
+    padding: 5px;
   }
   

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react'; // Eliminamos useEffect ya que no se usa
 import { useProductos } from '../context/ProductosContext';
 
 const Carrito = () => {
@@ -49,9 +49,9 @@ const Carrito = () => {
         <div>
           <h2>Información de la Tarjeta</h2>
           <div>
-          <p><strong>Nombre: </strong>{nombre}</p>
-          <p><strong>Presupuesto: </strong>{presupuesto}</p>
-        </div>
+            <p><strong>Nombre: </strong>{nombre}</p>
+            <p><strong>Presupuesto: </strong>{presupuesto}</p>
+          </div>
           <input type="text" placeholder="Número de tarjeta" />
           <input type="text" placeholder="Fecha de expiración (MM/AA)" />
           <input type="text" placeholder="Código de seguridad" />
