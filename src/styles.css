@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    background-color: #f4f4f4;
+    height: 100%;
   }
   
   h1, h3 {
@@ -25,6 +27,7 @@ body {
     font-size: 16px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
   }
   
   button:hover {
@@ -113,5 +116,34 @@ body {
   .producto-card p {
     color: #888;
     font-size: 14px;
+  }
+  
+
+  .contenedor-centrado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #ccc; 
+    background-color: #f9f9f9;
+  }
+
+  .contenedor  {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+  }
+
+  #parent {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+  }
+  
+  .container {
+    max-width: 800px; /* Ajusta según el ancho deseado */
+    width: 100%; /* Permite que se ajuste al ancho disponible */
+    padding: 20px; /* Opcional: añade espacio interno */
   }
   

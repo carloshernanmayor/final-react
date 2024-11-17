@@ -10,6 +10,8 @@ export const useProductos = () => {
 export const ProductosProvider = ({ children }) => {
   const [productosState, setProductosState] = useState([]);
   const [carrito, setCarrito] = useState([]);
+  const [presupuesto, setPresupuesto] = useState(0);
+  const [nombre, setNombre] = useState('');
 
   useEffect(() => {
     setProductosState(productos);
@@ -23,8 +25,25 @@ export const ProductosProvider = ({ children }) => {
     setCarrito(carrito.filter((item) => item.code !== codigo));
   };
 
+  const actualizarPresupuesto = (nuevoPresupuesto) => {
+    setPresupuesto(nuevoPresupuesto);
+  };
+
+  const actualizarNombre = (nuevoNombre) => {
+    setNombre(nuevoNombre);
+  };
+
   return (
-    <ProductosContext.Provider value={{ productosState, carrito, agregarAlCarrito, eliminarDelCarrito }}>
+    <ProductosContext.Provider value={{
+      productosState,
+      carrito,
+      agregarAlCarrito,
+      eliminarDelCarrito,
+      presupuesto,
+      actualizarPresupuesto,
+      nombre,
+      actualizarNombre
+    }}>
       {children}
     </ProductosContext.Provider>
   );

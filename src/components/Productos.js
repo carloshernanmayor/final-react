@@ -17,19 +17,23 @@ const Productos = () => {
   }, [filtroCategoria, productosState]);
 
   return (
-    <div>
-      <h1>Lista de Productos</h1>
-      <Filtro setFiltroCategoria={setFiltroCategoria} />
-      <div className="productos-container">
-        {productosFiltrados.map((producto) => (
-          <div key={producto.code} className="producto-card">
-            <h3>{producto.name}</h3>
-            <p>${producto.price}</p>
-            <button onClick={() => agregarAlCarrito(producto)}>Agregar al Carrito</button>
-          </div>
-        ))}
-      </div>
+    <div id="parent">
+  <div class="container">
+    <h1>Lista de Productos</h1>
+    <Filtro setFiltroCategoria={setFiltroCategoria} />
+    <div className="productos-container">
+      {productosFiltrados.map((producto) => (
+        <div key={producto.code} className="producto-card">
+          <img src={producto.image} alt={producto.name} className="producto-image" />
+          <h3>{producto.name}</h3>
+          <p>${producto.price}</p>
+          <button onClick={() => agregarAlCarrito(producto)}>Agregar al Carrito</button>
+        </div>
+      ))}
     </div>
+  </div>
+</div>
+
   );
 };
 
